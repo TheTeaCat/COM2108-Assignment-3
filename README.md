@@ -2,7 +2,7 @@
 
 This was an assignment to implement the Bombe in Haskell, given some constraints. Assignment 2 (Enigma.hs) is also included in this repository as it is a dependency for assignment 3.
 
-Part of this assignment was an extension for which there were some suggestions, but we were free to go beyond. Extension.hs is an extended version of Bombe.hs, a description of the changes can be found in report.md, but in summary it is parallelised. 
+Part of this assignment was an extension for which there were some suggestions, but we were free to go beyond. Extension.hs is an extended version of Bombe.hs, a description of the changes can be found in [report.md](report.md), but in summary it is parallelised. 
 
 
 
@@ -11,8 +11,6 @@ Part of this assignment was an extension for which there were some suggestions, 
 Enigma.hs and Bombe.hs should run happily in GHCi.
 
 Extension.hs has a dependency and needs to be compiled to take advantage of the parallelisation.
-
-
 
 - Install dependencies:
 
@@ -30,7 +28,7 @@ Extension.hs has a dependency and needs to be compiled to take advantage of the 
 - Run:
 
   ```
-  ./Extension.hs +RTS -N{x}
+  ./Extension +RTS -N{x}
   ```
 
   Replace `{x}` with the number of threads you wish to utilise.
