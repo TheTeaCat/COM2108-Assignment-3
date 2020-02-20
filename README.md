@@ -42,7 +42,7 @@ I initially wanted to write all of the possible offsets as a list comprehension 
 
 Instead I settled for expressing a "batch" of possible offsets as a list comprehension at a time, and evaluating that in parallel. Then, once it's all evaluated I filtered down to those that are not Nothing, and if the list isn't empty, I pick the first one. Otherwise I recurse onto the next batch.
 
-To benefit from these changes' performance improvements, you need to compile Extension.hs with the flag -threaded, then run it with the flags `+RTS -Nx`, where `x` is the number of threads you'd like to utilise.
+To benefit from these changes' performance improvements, you need to compile Extension.hs with the flag `-threaded`, then run it with the flags `+RTS -Nx`, where `x` is the number of threads you'd like to utilise.
 
 It's provided set up with a main function that should break the following example provided in the FAQ:
 
@@ -54,9 +54,9 @@ It's provided set up with a main function that should break the following exampl
 As it can run for a long time, I'm using traceShowId in some places to display the progress of the machine when:
 
  - It starts looking for a solution for a menu (as it tries all menus as long as the longest menu); Here it simply shows the menu being tested.
- 
+
  - It recurses onto the next batch of offsets; here it displays the offset it has progressed to, non inclusive (e.g. *(4,0,0)* would mean it's tried all the offsets up to, but not including, *(4,0,0)*).
- 
+
  - breakEA finally returns a set of offsets and a steckerboard for a menu; at which point it displays that menu, the offset, the steckerboard, and the full ciphertext that was provided decoded with the steckerboard and offsets found.
 
  It should provide the following output:
